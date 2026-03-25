@@ -1,0 +1,2 @@
+docker run --rm --name lab-docker-back-container -d -e CURRENT_ENVIRONMENT=DEV -p 5000:5000 ilanbbb/ilanrepo-docker-rkla-back-img:latest
+docker run --rm --name lab-docker-front-container -e TR_WS_BACK_URL=http://localhost:5000/ -p 8083:80 -it lab-docker-rkla-front-img

@@ -1,0 +1,3 @@
+docker ps
+docker exec -it lab-docker-back-container /bin/bash
+cat /etc/*release

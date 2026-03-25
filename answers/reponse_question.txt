@@ -1,0 +1,24 @@
+1.4 --> Why do you think this address is not responding?
+
+Parce que le port n’est pas exposé dans le conteneur (-p manquant).
+
+1.6 --> Why do you think this is?
+
+Parce que l’image n’a pas le bon nom.
+Elle doit être taggée avec le format :
+
+username/repository:tag
+
+1.8 --> What happens before the image starts?
+
+Docker télécharge l’image (pull) si elle n’est pas présente localement.
+
+1.9 --> which command will allow you to check that the container has started? (:warning:) What is the name of your container?
+
+- docker ps
+
+- Nom généré automatiquement (ex : agitated_goldwasser) ou celui donné avec --name.
+
+1.10 --> What OS is being used in the container?
+
+Debian 13 (trixie)

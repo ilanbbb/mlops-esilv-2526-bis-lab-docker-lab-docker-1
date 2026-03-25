@@ -1,0 +1,6 @@
+docker ps
+docker stop lab-docker-front-container lab-docker-back-container
+docker system prune
+docker ps
+docker image ls
+docker rmi lab-docker-rkla-front-img:latest ilanbbb/ilanrepo-docker-rkla-back-img:latest
