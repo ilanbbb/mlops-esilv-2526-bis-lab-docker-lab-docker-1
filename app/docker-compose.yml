@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  back:
+    image: ilanbbb/ilanrepo-docker-rkla-back-img:latest
+    environment:
+      CURRENT_ENVIRONMENT: DEV
+    expose:
+      - "5000"
+
+  front:
+    image: ilanbbb/ilanrepo-docker-rkla-front-img:latest
+    ports:
+      - "8083:80"
+    environment:
+      TR_WS_BACK_URL: http://localhost:8080/
+    depends_on:
+      - back
+      - nginx
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      start_period: 15s
+      interval: 5m
+      timeout: 15s
+      retries: 3
+    restart: unless-stopped
+    depends_on:
+      - back
